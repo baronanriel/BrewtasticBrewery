@@ -39,14 +39,16 @@ export default function BreweryApp() {
               <p className="text-lg font-bold text-blue-600 mt-2">${beer.price.toFixed(2)}</p>
               <Button className="mt-3 w-full" onClick={() => addToCart(beer)}>Add to Cart</Button>
 
+              {/* ⭐ Rating System */}
               <div className="flex justify-center mt-2">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
                     key={star}
-                    className={`cursor-pointer w-6 h-6 ${
-                      ratings[beer.id] >= star ? "text-yellow-500" : "text-gray-300"
-                    }`}
+                    className="cursor-pointer w-6 h-6"
                     onClick={() => rateBeer(beer.id, star)}
+                    fill={ratings[beer.id] >= star ? "yellow" : "none"}  // ✅ Dynamically fill stars
+                    stroke="black"
+                    strokeWidth="2"
                   />
                 ))}
               </div>
@@ -55,6 +57,7 @@ export default function BreweryApp() {
         ))}
       </div>
 
+      {/* 🛒 Cart */}
       <div className="mt-8 p-4 bg-white rounded-lg shadow-lg max-w-lg mx-auto">
         <h2 className="text-2xl font-bold text-gray-900">Cart ({cart.length})</h2>
         <ul className="mt-2">
