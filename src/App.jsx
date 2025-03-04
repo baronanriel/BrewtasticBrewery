@@ -42,12 +42,14 @@ export default function BreweryApp() {
 
               <div className="flex justify-center mt-2">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className={`cursor-pointer w-6 h-6 ${ratings[beer.id] >= star ? "text-yellow-500" : "text-gray-300"}`}
-                    onClick={() => rateBeer(beer.id, star)}
-                  />
-                ))}
+				  <Star
+					key={star}
+					className={`cursor-pointer w-6 h-6 ${
+					  (ratings[beer.id] || 0) >= star ? "text-yellow-500" : "text-gray-300"
+					}`}
+					onClick={() => rateBeer(beer.id, star)}
+				  />
+				))}
               </div>
             </CardContent>
           </Card>
