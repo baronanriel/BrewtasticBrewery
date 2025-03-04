@@ -20,7 +20,11 @@ export default function BreweryApp() {
   };
 
   const rateBeer = (id, rating) => {
-    setRatings({ ...ratings, [id]: rating });
+    setRatings((prevRatings) => ({
+  	  ...prevRatings,
+	  [id]: rating,
+	  }));
+	};
   };
 
   return (
