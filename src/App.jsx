@@ -23,8 +23,7 @@ export default function BreweryApp() {
     setRatings((prevRatings) => ({
   	  ...prevRatings,
 	  [id]: rating,
-	  }));
-	};
+	}));
   };
 
   return (
@@ -66,3 +65,4 @@ export default function BreweryApp() {
       </div>
     </div>
   );
+}
